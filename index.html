@@ -10,152 +10,137 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f6f8fb;
-      color: #1e293b;
-      line-height: 1.6;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #1f2933;
+      line-height: 1.7;
     }
 
     header {
       background: #ffffff;
       border-bottom: 1px solid #e5e7eb;
-      padding: 18px 8%;
+      padding: 20px 8%;
       position: sticky;
       top: 0;
       z-index: 10;
     }
 
     nav {
+      max-width: 1050px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1100px;
-      margin: auto;
     }
 
     nav h2 {
       margin: 0;
-      color: #0f172a;
+      color: #1f2933;
       font-size: 22px;
     }
 
     nav a {
-      margin-left: 20px;
-      color: #475569;
+      margin-left: 22px;
+      color: #52606d;
       text-decoration: none;
       font-weight: 600;
       font-size: 15px;
     }
 
     nav a:hover {
-      color: #2563eb;
+      color: #0f766e;
     }
 
     .hero {
-      max-width: 1100px;
-      margin: 70px auto 50px;
+      max-width: 900px;
+      margin: 70px auto 55px;
       padding: 0 8%;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 40px;
-      align-items: center;
     }
 
     .hero-card {
       background: #ffffff;
-      padding: 42px;
-      border-radius: 24px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      padding: 55px 45px;
+      border-radius: 22px;
       border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 28px rgba(31, 41, 51, 0.06);
+      text-align: center;
     }
 
     .hero h1 {
       margin: 0;
-      font-size: 48px;
-      color: #0f172a;
-      line-height: 1.1;
+      font-size: 46px;
+      color: #111827;
+      line-height: 1.15;
     }
 
     .hero h3 {
-      margin-top: 16px;
-      color: #2563eb;
+      margin: 16px 0 0;
+      color: #0f766e;
       font-size: 22px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .hero p {
-      color: #475569;
+      max-width: 650px;
+      margin: 22px auto 0;
+      color: #52606d;
       font-size: 17px;
-      margin-top: 18px;
-    }
-
-    .profile-box {
-      background: linear-gradient(135deg, #e0f2fe, #eef2ff);
-      padding: 35px;
-      border-radius: 24px;
-      text-align: center;
-      border: 1px solid #dbeafe;
-    }
-
-    .profile-circle {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: #ffffff;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 54px;
-      color: #2563eb;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
     }
 
     .button-row {
-      margin-top: 25px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 18px;
-      border-radius: 12px;
+      padding: 12px 20px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
-      margin-right: 10px;
-      margin-top: 10px;
+      margin: 8px;
+      font-size: 15px;
     }
 
     .btn-primary {
-      background: #2563eb;
-      color: white;
+      background: #0f766e;
+      color: #ffffff;
     }
 
     .btn-secondary {
-      background: #e0f2fe;
-      color: #075985;
+      background: #eef7f6;
+      color: #0f766e;
+      border: 1px solid #cce7e3;
     }
 
     section {
-      max-width: 1100px;
+      max-width: 1050px;
       margin: 45px auto;
       padding: 0 8%;
     }
 
     section h2 {
-      font-size: 30px;
-      color: #0f172a;
+      font-size: 28px;
+      color: #111827;
       margin-bottom: 18px;
     }
 
     .card {
       background: #ffffff;
       padding: 28px;
-      border-radius: 18px;
+      border-radius: 16px;
       border: 1px solid #e5e7eb;
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 6px 18px rgba(31, 41, 51, 0.04);
       margin-bottom: 20px;
+    }
+
+    .card p {
+      color: #374151;
     }
 
     .skills {
@@ -165,64 +150,72 @@
     }
 
     .skills span {
-      background: #eef6ff;
-      color: #1e40af;
+      background: #f1f5f4;
+      color: #274c47;
       padding: 10px 14px;
       border-radius: 999px;
       font-size: 14px;
       font-weight: 600;
-      border: 1px solid #dbeafe;
+      border: 1px solid #dbe5e3;
     }
 
     .project h3 {
       margin-top: 0;
-      color: #1e293b;
+      color: #111827;
       font-size: 22px;
     }
 
-    .project p {
-      color: #475569;
-    }
-
     .tech {
-      color: #2563eb;
+      color: #0f766e;
       font-weight: bold;
     }
 
     .contact a {
-      color: #2563eb;
+      color: #0f766e;
       font-weight: bold;
       text-decoration: none;
+    }
+
+    .contact a:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      color: #64748b;
+      color: #6b7280;
       font-size: 14px;
     }
 
-    @media (max-width: 800px) {
-      .hero {
-        grid-template-columns: 1fr;
-        margin-top: 40px;
-      }
-
-      .hero h1 {
-        font-size: 38px;
-      }
-
+    @media (max-width: 750px) {
       nav {
         display: block;
+        text-align: center;
       }
 
       nav div {
-        margin-top: 10px;
+        margin-top: 12px;
       }
 
       nav a {
-        margin-left: 0;
-        margin-right: 14px;
+        margin: 0 8px;
+        font-size: 14px;
+      }
+
+      .hero {
+        margin-top: 40px;
+      }
+
+      .hero-card {
+        padding: 38px 25px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero h3 {
+        font-size: 19px;
       }
     }
   </style>
@@ -257,12 +250,6 @@
           <a class="btn btn-primary" href="#projects">View Projects</a>
           <a class="btn btn-secondary" href="#contact">Contact Me</a>
         </div>
-      </div>
-
-      <div class="profile-box">
-        <div class="profile-circle">FD</div>
-        <h3>Full-Stack Web Development</h3>
-        <p>Backend development, databases, APIs, testing, and clean user-focused applications.</p>
       </div>
     </div>
 
@@ -311,7 +298,9 @@
           The system includes customer registration and login, salon booking, admin management,
           role-based access control, secure REST APIs, and booking validation to prevent overlapping appointments.
         </p>
-        <p class="tech">Vue.js · Spring Boot · MySQL · Spring Security · JWT · REST APIs</p>
+        <p class="tech">
+          Vue.js · Spring Boot · MySQL · Spring Security · JWT · REST APIs
+        </p>
       </div>
 
       <div class="card project">
@@ -320,7 +309,9 @@
           A university full-stack project using frontend and backend technologies to build
           a complete web application.
         </p>
-        <p class="tech">Node.js · Express · Vue.js · JavaScript</p>
+        <p class="tech">
+          Node.js · Express · Vue.js · JavaScript
+        </p>
       </div>
 
       <div class="card project">
@@ -328,28 +319,39 @@
         <p>
           A mobile application project built using C# for recording and managing travel log entries.
         </p>
-        <p class="tech">C# · Mobile App Development</p>
+        <p class="tech">
+          C# · Mobile App Development
+        </p>
       </div>
     </section>
 
-    <section>
+    <section id="education">
       <h2>Education</h2>
       <div class="card">
         <p>
-          <strong>BSc Software Engineering</strong><br>
+          <strong>BSc Software Engineering</strong><br />
           Manchester Metropolitan University
         </p>
       </div>
     </section>
 
-<section>
-  <h2>Contact</h2>
-  <div class="card">
-    <p>GitHub: <a href="https://github.com/Fatemeh-Dana" target="_blank">github.com/Fatemeh-Dana</a></p>
-    <p>LinkedIn: <a href="PASTE-YOUR-LINKEDIN-LINK-HERE" target="_blank">View my LinkedIn</a></p>
-    <p>Email: <a href="mailto:PASTE-YOUR-EMAIL-HERE">PASTE-YOUR-EMAIL-HERE</a></p>
-  </div>
-</section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card contact">
+        <p>
+          GitHub:
+          <a href="https://github.com/Fatemeh-Dana" target="_blank">
+            github.com/Fatemeh-Dana
+          </a>
+        </p>
+        <p>
+          LinkedIn: Add your LinkedIn link here later
+        </p>
+        <p>
+          Email: Add your email here later
+        </p>
+      </div>
+    </section>
 
   </main>
 
