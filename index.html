@@ -1,88 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fatemeh Dana | Portfolio</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #faf7fb;
-      color: #1f2937;
+      background: #f6f8fb;
+      color: #1e293b;
       line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(135deg, #fce7f3, #eef2ff);
-      color: #1f2937;
-      text-align: center;
-      padding: 70px 20px;
-      border-bottom: 1px solid #eadff2;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    header h1 {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    nav h2 {
       margin: 0;
-      font-size: 46px;
-      color: #7c3aed;
+      color: #0f172a;
+      font-size: 22px;
     }
 
-    header p {
-      font-size: 20px;
-      margin-top: 12px;
-      color: #374151;
+    nav a {
+      margin-left: 20px;
+      color: #475569;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 70px auto 50px;
+      padding: 0 8%;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      padding: 42px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e5e7eb;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 48px;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+
+    .hero h3 {
+      margin-top: 16px;
+      color: #2563eb;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: #475569;
+      font-size: 17px;
+      margin-top: 18px;
+    }
+
+    .profile-box {
+      background: linear-gradient(135deg, #e0f2fe, #eef2ff);
+      padding: 35px;
+      border-radius: 24px;
+      text-align: center;
+      border: 1px solid #dbeafe;
+    }
+
+    .profile-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: #ffffff;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px;
+      color: #2563eb;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
+    }
+
+    .button-row {
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #e0f2fe;
+      color: #075985;
     }
 
     section {
-      max-width: 900px;
-      margin: 35px auto;
-      padding: 0 20px;
+      max-width: 1100px;
+      margin: 45px auto;
+      padding: 0 8%;
     }
 
-    h2 {
-      color: #7c3aed;
-      border-bottom: 2px solid #eadff2;
-      padding-bottom: 8px;
+    section h2 {
+      font-size: 30px;
+      color: #0f172a;
+      margin-bottom: 18px;
     }
 
     .card {
       background: #ffffff;
-      padding: 24px;
-      margin-top: 18px;
-      border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.08);
-      border: 1px solid #f0e7f8;
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .skills span {
-      display: inline-block;
-      background: #f3e8ff;
-      color: #4c1d95;
-      padding: 8px 14px;
-      margin: 6px;
-      border-radius: 20px;
+      background: #eef6ff;
+      color: #1e40af;
+      padding: 10px 14px;
+      border-radius: 999px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
+      border: 1px solid #dbeafe;
     }
 
-    a {
-      color: #7c3aed;
+    .project h3 {
+      margin-top: 0;
+      color: #1e293b;
+      font-size: 22px;
+    }
+
+    .project p {
+      color: #475569;
+    }
+
+    .tech {
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .contact a {
+      color: #2563eb;
       font-weight: bold;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       text-align: center;
-      background: #f3e8ff;
-      color: #4c1d95;
-      padding: 25px;
-      margin-top: 50px;
-      border-top: 1px solid #eadff2;
+      padding: 30px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      nav {
+        display: block;
+      }
+
+      nav div {
+        margin-top: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 14px;
+      }
     }
   </style>
 </head>
@@ -90,88 +231,130 @@
 <body>
 
   <header>
-    <h1>Fatemeh Dana</h1>
-    <p>Software Engineering Graduate | Full-Stack Web Development</p>
+    <nav>
+      <h2>Fatemeh Dana</h2>
+      <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I am a Software Engineering graduate with experience building full-stack web applications
-        using Java, Spring Boot, Vue.js, MySQL, REST APIs, authentication, and software testing.
-      </p>
-      <p>
-        I enjoy working on backend development, database design, API development, performance improvement,
-        and building clean, user-focused applications.
-      </p>
-    </div>
-  </section>
+  <main>
 
-  <section>
-    <h2>Technical Skills</h2>
-    <div class="card skills">
-      <span>Java</span>
-      <span>Spring Boot</span>
-      <span>Vue.js</span>
-      <span>JavaScript</span>
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>MySQL</span>
-      <span>MariaDB</span>
-      <span>REST APIs</span>
-      <span>JWT Authentication</span>
-      <span>Software Testing</span>
-      <span>Git</span>
-      <span>GitHub</span>
-      <span>AWS Basics</span>
-      <span>C# Basics</span>
-    </div>
-  </section>
+    <div class="hero">
+      <div class="hero-card">
+        <h1>Hi, I’m Fatemeh Dana</h1>
+        <h3>Software Engineering Graduate</h3>
+        <p>
+          I build full-stack web applications using Java, Spring Boot, Vue.js, MySQL,
+          REST APIs, authentication, and software testing.
+        </p>
 
-  <section>
-    <h2>Projects</h2>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
 
-    <div class="card">
-      <h3>Book Ease Booking System</h3>
-      <p>
-        A full-stack salon and beauty booking system built for my final year university project.
-        The system includes customer registration, login, salon booking, admin management,
-        role-based access control, secure REST APIs, and booking validation to prevent overlapping appointments.
-      </p>
-      <p><strong>Technologies:</strong> Vue.js, Spring Boot, MySQL, Spring Security, JWT, REST APIs</p>
+      <div class="profile-box">
+        <div class="profile-circle">FD</div>
+        <h3>Full-Stack Web Development</h3>
+        <p>Backend development, databases, APIs, testing, and clean user-focused applications.</p>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Travel Log Mobile App</h3>
-      <p>
-        A mobile application project built using C# for recording and managing travel log entries.
-      </p>
-      <p><strong>Technologies:</strong> C#</p>
-    </div>
-  </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p>
+          I am a Software Engineering graduate with experience building full-stack web applications
+          using Java, Spring Boot, Vue.js, MySQL, REST APIs, authentication, and software testing.
+        </p>
+        <p>
+          I enjoy working on backend development, database design, API development,
+          performance improvement, and building clean, user-focused applications.
+        </p>
+      </div>
+    </section>
 
-  <section>
-    <h2>Education</h2>
-    <div class="card">
-      <p>
-        <strong>BSc Software Engineering</strong><br>
-        Manchester Metropolitan University
-      </p>
-    </div>
-  </section>
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="card skills">
+        <span>Java</span>
+        <span>Spring Boot</span>
+        <span>Vue.js</span>
+        <span>JavaScript</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>MySQL</span>
+        <span>MariaDB</span>
+        <span>REST APIs</span>
+        <span>JWT Authentication</span>
+        <span>Software Testing</span>
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>AWS Basics</span>
+        <span>C# Basics</span>
+      </div>
+    </section>
 
-  <section>
-    <h2>Contact</h2>
-    <div class="card">
-      <p>GitHub: <a href="https://github.com/Fatemeh-Dana">github.com/Fatemeh-Dana</a></p>
-      <p>LinkedIn: Add your LinkedIn link here later</p>
-      <p>Email: Add your email here later</p>
-    </div>
-  </section>
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <div class="card project">
+        <h3>Book Ease Booking System</h3>
+        <p>
+          A full-stack salon and beauty booking system built for my final year university project.
+          The system includes customer registration and login, salon booking, admin management,
+          role-based access control, secure REST APIs, and booking validation to prevent overlapping appointments.
+        </p>
+        <p class="tech">Vue.js · Spring Boot · MySQL · Spring Security · JWT · REST APIs</p>
+      </div>
+
+      <div class="card project">
+        <h3>Full-Stack Web Application</h3>
+        <p>
+          A university full-stack project using frontend and backend technologies to build
+          a complete web application.
+        </p>
+        <p class="tech">Node.js · Express · Vue.js · JavaScript</p>
+      </div>
+
+      <div class="card project">
+        <h3>Travel Log Mobile App</h3>
+        <p>
+          A mobile application project built using C# for recording and managing travel log entries.
+        </p>
+        <p class="tech">C# · Mobile App Development</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="card">
+        <p>
+          <strong>BSc Software Engineering</strong><br>
+          Manchester Metropolitan University
+        </p>
+      </div>
+    </section>
+
+<section>
+  <h2>Contact</h2>
+  <div class="card">
+    <p>GitHub: <a href="https://github.com/Fatemeh-Dana" target="_blank">github.com/Fatemeh-Dana</a></p>
+    <p>LinkedIn: <a href="PASTE-YOUR-LINKEDIN-LINK-HERE" target="_blank">View my LinkedIn</a></p>
+    <p>Email: <a href="mailto:PASTE-YOUR-EMAIL-HERE">PASTE-YOUR-EMAIL-HERE</a></p>
+  </div>
+</section>
+
+  </main>
 
   <footer>
-    <p>© 2026 Fatemeh Dana</p>
+    <p>© 2026 Fatemeh Dana. Portfolio Website.</p>
   </footer>
 
 </body>
