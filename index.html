@@ -2,362 +2,1185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fatemeh Dana | Portfolio</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="description"
+    content="Portfolio of Fatemeh Dana, a Software Engineering graduate specialising in Java, Spring Boot, Vue.js, MySQL and full-stack web development."
+  />
+
+  <title>Fatemeh Dana | Software Engineering Graduate</title>
 
   <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #0b5f59;
+      --primary-light: #ecfdf9;
+      --heading: #111827;
+      --text: #374151;
+      --muted: #6b7280;
+      --background: #f8fafc;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 12px 35px rgba(15, 23, 42, 0.07);
+      --radius-large: 22px;
+      --radius-medium: 16px;
+      --content-width: 1120px;
+    }
+
     * {
       box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f8fa;
-      color: #1f2933;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      background: var(--background);
+      color: var(--text);
       line-height: 1.7;
     }
 
+    a {
+      color: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      top: 15px;
+    }
+
     header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 20px 8%;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
     }
 
     nav {
-      max-width: 1050px;
+      max-width: var(--content-width);
+      min-height: 76px;
       margin: auto;
+      padding: 0 28px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 30px;
     }
 
-    nav h2 {
-      margin: 0;
-      color: #1f2933;
-      font-size: 22px;
-    }
-
-    nav a {
-      margin-left: 22px;
-      color: #52606d;
+    .brand {
       text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--heading);
+      font-weight: 800;
+      font-size: 19px;
+      white-space: nowrap;
     }
 
-    nav a:hover {
-      color: #0f766e;
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--primary);
+      color: white;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      padding: 8px 11px;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 650;
+      border-radius: 8px;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .container {
+      width: min(var(--content-width), calc(100% - 40px));
+      margin-inline: auto;
     }
 
     .hero {
-      max-width: 900px;
-      margin: 70px auto 55px;
-      padding: 0 8%;
+      padding: 82px 0 50px;
     }
 
     .hero-card {
-      background: #ffffff;
-      padding: 55px 45px;
-      border-radius: 22px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 28px rgba(31, 41, 51, 0.06);
-      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 50px;
+      padding: 65px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .hero h1 {
-      margin: 0;
-      font-size: 46px;
-      color: #111827;
-      line-height: 1.15;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      top: -210px;
+      right: -130px;
+      border-radius: 50%;
+      background: #d9f5ef;
+      opacity: 0.8;
     }
 
-    .hero h3 {
-      margin: 16px 0 0;
-      color: #0f766e;
-      font-size: 22px;
+    .hero-content,
+    .hero-profile {
+      position: relative;
+      z-index: 1;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 20px;
+      padding: 7px 12px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid #c8eee6;
+      border-radius: 999px;
+      font-size: 13px;
       font-weight: 700;
     }
 
-    .hero p {
-      max-width: 650px;
-      margin: 22px auto 0;
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      max-width: 720px;
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(42px, 6vw, 65px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-title {
+      margin: 20px 0 0;
+      color: var(--heading);
+      font-size: 22px;
+      font-weight: 750;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      margin: 18px 0 0;
       color: #52606d;
       font-size: 17px;
     }
 
     .button-row {
       margin-top: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 8px;
-      font-size: 15px;
-    }
-
-    .btn-primary {
-      background: #0f766e;
-      color: #ffffff;
-    }
-
-    .btn-secondary {
-      background: #eef7f6;
-      color: #0f766e;
-      border: 1px solid #cce7e3;
-    }
-
-    section {
-      max-width: 1050px;
-      margin: 45px auto;
-      padding: 0 8%;
-    }
-
-    section h2 {
-      font-size: 28px;
-      color: #111827;
-      margin-bottom: 18px;
-    }
-
-    .card {
-      background: #ffffff;
-      padding: 28px;
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 6px 18px rgba(31, 41, 51, 0.04);
-      margin-bottom: 20px;
-    }
-
-    .card p {
-      color: #374151;
-    }
-
-    .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
 
-    .skills span {
-      background: #f1f5f4;
-      color: #274c47;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid #dbe5e3;
+    .btn {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 19px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 750;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
     }
 
-    .project h3 {
-      margin-top: 0;
-      color: #111827;
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--heading);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: #9ca3af;
+      background: #f9fafb;
+    }
+
+    .hero-profile {
+      width: 180px;
+      height: 180px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: white;
+      background: linear-gradient(145deg, #0f766e, #134e4a);
+      border: 9px solid #e5f7f3;
+      border-radius: 50%;
+      font-size: 55px;
+      font-weight: 800;
+      letter-spacing: -3px;
+      box-shadow: 0 20px 45px rgba(15, 118, 110, 0.2);
+    }
+
+    section {
+      padding: 50px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 25px;
+    }
+
+    .section-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--heading);
+      font-size: clamp(29px, 4vw, 38px);
+      line-height: 1.25;
+      letter-spacing: -0.7px;
+    }
+
+    .section-heading p {
+      max-width: 680px;
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
+    }
+
+    .about-card {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .about-card p {
+      margin: 0 0 15px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-details {
+      display: grid;
+      gap: 15px;
+    }
+
+    .detail-item {
+      padding: 15px 18px;
+      background: #f8fafc;
+      border: 1px solid #edf0f3;
+      border-radius: 12px;
+    }
+
+    .detail-item strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--heading);
+      font-size: 14px;
+    }
+
+    .detail-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 26px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 17px;
+      color: var(--heading);
+      font-size: 18px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skills span {
+      padding: 8px 12px;
+      background: #f3f8f7;
+      color: #265851;
+      border: 1px solid #d9e9e6;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .experience-card {
+      padding: 32px;
+    }
+
+    .experience-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .experience-header h3 {
+      margin: 0;
+      color: var(--heading);
       font-size: 22px;
     }
 
-    .tech {
-      color: #0f766e;
-      font-weight: bold;
+    .company {
+      margin: 5px 0 0;
+      color: var(--primary);
+      font-weight: 700;
     }
 
-    .contact a {
-      color: #0f766e;
-      font-weight: bold;
+    .experience-type {
+      padding: 6px 11px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .achievement-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .achievement-list li {
+      margin-bottom: 9px;
+    }
+
+    .achievement-list li::marker {
+      color: var(--primary);
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .project-card {
+      padding: 34px;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .featured-project {
+      border-color: #b8ddd7;
+    }
+
+    .project-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      margin: 0;
+      color: var(--heading);
+      font-size: 23px;
+    }
+
+    .project-badge {
+      padding: 5px 10px;
+      background: var(--primary);
+      color: white;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .project-card > p {
+      max-width: 850px;
+      margin: 0 0 18px;
+    }
+
+    .project-features {
+      margin: 0 0 22px;
+      padding-left: 20px;
+    }
+
+    .project-features li {
+      margin-bottom: 7px;
+    }
+
+    .project-features li::marker {
+      color: var(--primary);
+    }
+
+    .technology-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .technology-list span {
+      padding: 7px 11px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .education-card {
+      padding: 32px;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .education-card h3 {
+      margin: 0;
+      color: var(--heading);
+      font-size: 22px;
+    }
+
+    .university {
+      margin: 5px 0 15px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .education-description {
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .graduation {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .module-list {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .module-list span {
+      padding: 7px 10px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #4b5563;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .contact-card {
+      padding: 45px;
+      text-align: center;
+      background: linear-gradient(145deg, #0f766e, #115e59);
+      color: white;
+      border: none;
+    }
+
+    .contact-card h2 {
+      margin: 0;
+      font-size: clamp(29px, 4vw, 38px);
+    }
+
+    .contact-card p {
+      max-width: 650px;
+      margin: 13px auto 26px;
+      color: #d9f2ee;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-links a {
+      min-width: 130px;
+      padding: 11px 18px;
+      background: white;
+      color: var(--primary-dark);
+      border-radius: 9px;
       text-decoration: none;
+      font-weight: 750;
+      transition: transform 0.2s ease;
     }
 
-    .contact a:hover {
-      text-decoration: underline;
+    .contact-links a:hover {
+      transform: translateY(-2px);
     }
 
     footer {
+      padding: 28px 20px 38px;
+      color: var(--muted);
       text-align: center;
-      padding: 30px;
-      color: #6b7280;
       font-size: 14px;
     }
 
-    @media (max-width: 750px) {
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #5eead4;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 850px) {
       nav {
-        display: block;
-        text-align: center;
+        padding-block: 13px;
+        flex-direction: column;
+        gap: 10px;
       }
 
-      nav div {
-        margin-top: 12px;
-      }
-
-      nav a {
-        margin: 0 8px;
-        font-size: 14px;
+      .nav-links {
+        justify-content: center;
       }
 
       .hero {
-        margin-top: 40px;
+        padding-top: 45px;
       }
 
       .hero-card {
-        padding: 38px 25px;
+        grid-template-columns: 1fr;
+        padding: 45px 34px;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-inline: auto;
+      }
+
+      .button-row {
+        justify-content: center;
+      }
+
+      .hero-profile {
+        grid-row: 1;
+        width: 135px;
+        height: 135px;
+        margin-inline: auto;
+        font-size: 42px;
+      }
+
+      .about-card,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 28px, var(--content-width));
+      }
+
+      nav {
+        padding-inline: 14px;
+      }
+
+      .nav-links {
+        gap: 2px;
+      }
+
+      .nav-links a {
+        padding: 7px;
+        font-size: 13px;
+      }
+
+      .hero-card {
+        padding: 38px 22px;
+        border-radius: 20px;
       }
 
       .hero h1 {
-        font-size: 36px;
+        letter-spacing: -1.3px;
       }
 
-      .hero h3 {
+      .hero-title {
         font-size: 19px;
+      }
+
+      section {
+        padding: 38px 0;
+      }
+
+      .about-card,
+      .skill-card,
+      .experience-card,
+      .project-card,
+      .education-card {
+        padding: 24px;
+      }
+
+      .experience-header,
+      .project-top,
+      .education-card {
+        flex-direction: column;
+      }
+
+      .contact-card {
+        padding: 38px 22px;
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+
+      .contact-links a {
+        width: 100%;
       }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header>
-    <nav>
-      <h2>Fatemeh Dana</h2>
-      <div>
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#top">
+        <span class="brand-mark">FD</span>
+        <span>Fatemeh Dana</span>
+      </a>
+
+      <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="status">
+              <span class="status-dot"></span>
+              Open to software engineering opportunities
+            </div>
 
-    <div class="hero">
-      <div class="hero-card">
-        <h1>Hi, I’m Fatemeh Dana</h1>
-        <h3>Software Engineering Graduate</h3>
-        <p>
-          I build full-stack web applications using Java, Spring Boot, Vue.js, MySQL,
-          REST APIs, authentication, and software testing.
-        </p>
+            <h1>
+              Hi, I’m <span>Fatemeh Dana</span>
+            </h1>
 
-        <div class="button-row">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+            <p class="hero-title">
+              Software Engineering Graduate
+            </p>
+
+            <p class="hero-description">
+              I develop secure and user-focused full-stack applications using
+              Java, Spring Boot, Vue.js, SQL and REST APIs. I am particularly
+              interested in backend development, application architecture and
+              software quality.
+            </p>
+
+            <div class="button-row">
+              <a class="btn btn-primary" href="#projects">
+                View my projects
+              </a>
+
+              <a
+                class="btn btn-secondary"
+                href="https://github.com/Fatemeh-Dana"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub profile
+              </a>
+
+              <a class="btn btn-secondary" href="#contact">
+                Contact me
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-profile" aria-label="Fatemeh Dana initials">
+            FD
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <section id="about">
-      <h2>About Me</h2>
-      <div class="card">
-        <p>
-          I am a Software Engineering graduate with experience building full-stack web applications
-          using Java, Spring Boot, Vue.js, MySQL, REST APIs, authentication, and software testing.
-        </p>
-        <p>
-          I enjoy working on backend development, database design, API development,
-          performance improvement, and building clean, user-focused applications.
-        </p>
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Introduction</span>
+          <h2>About me</h2>
+        </div>
+
+        <div class="card about-card">
+          <div>
+            <p>
+              I am a Software Engineering graduate from Manchester Metropolitan
+              University with experience designing and developing full-stack web
+              applications.
+            </p>
+
+            <p>
+              My university and personal projects have given me practical
+              experience with Java, Spring Boot, Vue.js, relational databases,
+              REST APIs, authentication, access control and software testing.
+            </p>
+
+            <p>
+              I enjoy solving technical problems, creating maintainable
+              applications and continuing to strengthen my backend and
+              full-stack development skills.
+            </p>
+          </div>
+
+          <div class="about-details">
+            <div class="detail-item">
+              <strong>Primary interest</strong>
+              <span>Backend and full-stack development</span>
+            </div>
+
+            <div class="detail-item">
+              <strong>Location</strong>
+              <span>United Kingdom</span>
+            </div>
+
+            <div class="detail-item">
+              <strong>Current focus</strong>
+              <span>Graduate software engineering opportunities</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="skills">
-      <h2>Technical Skills</h2>
-      <div class="card skills">
-        <span>Java</span>
-        <span>Spring Boot</span>
-        <span>Vue.js</span>
-        <span>JavaScript</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>MySQL</span>
-        <span>MariaDB</span>
-        <span>REST APIs</span>
-        <span>JWT Authentication</span>
-        <span>Software Testing</span>
-        <span>Git</span>
-        <span>GitHub</span>
-        <span>AWS Basics</span>
-        <span>C# Basics</span>
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Technical knowledge</span>
+          <h2>Skills and technologies</h2>
+          <p>
+            Technologies and software engineering practices used throughout my
+            degree, projects and development experience.
+          </p>
+        </div>
+
+        <div class="skill-grid">
+          <div class="card skill-card">
+            <h3>Backend development</h3>
+            <div class="skills">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>REST APIs</span>
+              <span>Spring Security</span>
+              <span>JWT Authentication</span>
+              <span>Node.js</span>
+              <span>Express</span>
+            </div>
+          </div>
+
+          <div class="card skill-card">
+            <h3>Frontend development</h3>
+            <div class="skills">
+              <span>Vue.js</span>
+              <span>JavaScript</span>
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Responsive Design</span>
+            </div>
+          </div>
+
+          <div class="card skill-card">
+            <h3>Databases</h3>
+            <div class="skills">
+              <span>MySQL</span>
+              <span>MariaDB</span>
+              <span>SQL</span>
+              <span>Database Design</span>
+              <span>Relational Databases</span>
+            </div>
+          </div>
+
+          <div class="card skill-card">
+            <h3>Testing and tools</h3>
+            <div class="skills">
+              <span>Software Testing</span>
+              <span>Unit Testing</span>
+              <span>Integration Testing</span>
+              <span>Git</span>
+              <span>GitHub</span>
+              <span>AWS Fundamentals</span>
+              <span>C# Fundamentals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Professional experience</span>
+          <h2>Experience</h2>
+        </div>
+
+        <article class="card experience-card">
+          <div class="experience-header">
+            <div>
+              <h3>Part-Time Software Developer</h3>
+              <p class="company">Ava High Tech Ltd</p>
+            </div>
+
+            <span class="experience-type">Part-time</span>
+          </div>
+
+          <ul class="achievement-list">
+            <li>
+              Contribute to the development and improvement of a multi-tenant
+              software platform for restaurants and takeaways.
+            </li>
+
+            <li>
+              Support feature improvements, frontend updates, software testing
+              and bug investigation.
+            </li>
+
+            <li>
+              Document technical findings and communicate recommendations to
+              other developers.
+            </li>
+
+            <li>
+              Use Git and GitHub to support version control and collaborative
+              development.
+            </li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Selected work</span>
+          <h2>Featured projects</h2>
+          <p>
+            A selection of projects demonstrating full-stack development,
+            security, database design and software engineering skills.
+          </p>
+        </div>
 
-      <div class="card project">
-        <h3>Book Ease Booking System</h3>
-        <p>
-          A full-stack salon and beauty booking system built for my final year university project.
-          The system includes customer registration and login, salon booking, admin management,
-          role-based access control, secure REST APIs, and booking validation to prevent overlapping appointments.
-        </p>
-        <p class="tech">
-          Vue.js · Spring Boot · MySQL · Spring Security · JWT · REST APIs
-        </p>
-      </div>
+        <div class="project-grid">
+          <article class="card project-card featured-project">
+            <div class="project-top">
+              <h3>Book Ease Booking System</h3>
+              <span class="project-badge">Final Year Project</span>
+            </div>
 
-      <div class="card project">
-        <h3>Full-Stack Web Application</h3>
-        <p>
-          A university full-stack project using frontend and backend technologies to build
-          a complete web application.
-        </p>
-        <p class="tech">
-          Node.js · Express · Vue.js · JavaScript
-        </p>
-      </div>
+            <p>
+              A full-stack salon and beauty booking platform developed as my
+              final year university project. The application provides secure
+              booking and administration features for customers, salons and
+              system administrators.
+            </p>
 
-      <div class="card project">
-        <h3>Travel Log Mobile App</h3>
-        <p>
-          A mobile application project built using C# for recording and managing travel log entries.
-        </p>
-        <p class="tech">
-          C# · Mobile App Development
-        </p>
+            <ul class="project-features">
+              <li>
+                Implemented secure registration and login using Spring Security
+                and JWT authentication.
+              </li>
+
+              <li>
+                Developed role-based and ownership-based access control.
+              </li>
+
+              <li>
+                Created REST APIs using a layered backend architecture.
+              </li>
+
+              <li>
+                Added booking validation to prevent invalid and overlapping
+                appointments.
+              </li>
+
+              <li>
+                Built customer booking and salon administration interfaces with
+                Vue.js.
+              </li>
+            </ul>
+
+            <div class="technology-list">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>Vue.js</span>
+              <span>MySQL</span>
+              <span>Spring Security</span>
+              <span>JWT</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>Full-Stack Sales Web Application</h3>
+              <span class="project-badge">University Project</span>
+            </div>
+
+            <p>
+              A full-stack web application developed using Vue.js, Node.js and
+              Express. The project involved connecting a responsive frontend to
+              backend services and implementing functionality for managing
+              application data.
+            </p>
+
+            <ul class="project-features">
+              <li>
+                Developed frontend components and user interactions using
+                Vue.js.
+              </li>
+
+              <li>
+                Created backend routes and application logic with Node.js and
+                Express.
+              </li>
+
+              <li>
+                Connected the frontend and backend through API requests.
+              </li>
+            </ul>
+
+            <div class="technology-list">
+              <span>Vue.js</span>
+              <span>Node.js</span>
+              <span>Express</span>
+              <span>JavaScript</span>
+              <span>REST APIs</span>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>Travel Log Mobile Application</h3>
+              <span class="project-badge">University Project</span>
+            </div>
+
+            <p>
+              A mobile application created with C# that allows users to record,
+              view and manage travel log entries through a clear and
+              user-focused interface.
+            </p>
+
+            <ul class="project-features">
+              <li>
+                Designed screens for creating and managing travel records.
+              </li>
+
+              <li>
+                Implemented application logic and data-handling features using
+                C#.
+              </li>
+
+              <li>
+                Applied mobile application design and development principles.
+              </li>
+            </ul>
+
+            <div class="technology-list">
+              <span>C#</span>
+              <span>Mobile Development</span>
+              <span>Application Design</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="education">
-      <h2>Education</h2>
-      <div class="card">
-        <p>
-          <strong>BSc Software Engineering</strong><br />
-          Manchester Metropolitan University
-        </p>
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Academic background</span>
+          <h2>Education</h2>
+        </div>
+
+        <article class="card education-card">
+          <div>
+            <h3>BSc Software Engineering</h3>
+            <p class="university">
+              Manchester Metropolitan University
+            </p>
+
+            <p class="education-description">
+              Developed practical knowledge of full-stack development,
+              object-oriented programming, software architecture, database
+              design, cloud computing, mobile development and software testing.
+            </p>
+
+            <div class="module-list">
+              <span>Full-Stack Development</span>
+              <span>Software Testing</span>
+              <span>Cloud Computing</span>
+              <span>Mobile Computing</span>
+              <span>Software Architecture</span>
+              <span>Database Systems</span>
+            </div>
+          </div>
+
+          <span class="graduation">Graduated 2026</span>
+        </article>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <div class="card contact">
-        <p>
-          GitHub:
-          <a href="https://github.com/Fatemeh-Dana" target="_blank">
-            github.com/Fatemeh-Dana
-          </a>
-        </p>
-        <p>
-          LinkedIn: Add your LinkedIn link here later
-        </p>
-        <p>
-          Email: Add your email here later
-        </p>
+      <div class="container">
+        <div class="card contact-card">
+          <h2>Let’s connect</h2>
+
+          <p>
+            I am interested in graduate and entry-level software engineering
+            opportunities where I can contribute, learn and continue developing
+            my technical skills.
+          </p>
+
+          <div class="contact-links">
+            <a
+              href="https://github.com/Fatemeh-Dana"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+
+            <!-- Replace YOUR-LINKEDIN-USERNAME with your LinkedIn username -->
+            <a
+              href="https://www.linkedin.com/in/YOUR-LINKEDIN-USERNAME/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+
+            <!-- Replace YOUR-EMAIL@example.com with your email address -->
+            <a href="mailto:YOUR-EMAIL@example.com">
+              Email me
+            </a>
+          </div>
+        </div>
       </div>
     </section>
-
   </main>
 
   <footer>
-    <p>© 2026 Fatemeh Dana. Portfolio Website.</p>
+    <p>
+      © 2026 Fatemeh Dana. Designed and developed by Fatemeh Dana.
+    </p>
   </footer>
-
 </body>
 </html>
